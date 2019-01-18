@@ -6,7 +6,7 @@ import Content from './components/Content/Content';
 import Login from './components/Login';
 import authenticator from './components/authenticate/authenticator';
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
