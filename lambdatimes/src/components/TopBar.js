@@ -72,6 +72,7 @@ const RightContainerSpans = styled.span`
   cursor: pointer;
 `
 const LogOut = styled.div`
+  ${props => props.open ? 'display: block' : 'display: none'}
   position: absolute;
   padding: 20px;
   background: white;
@@ -101,7 +102,7 @@ const LogOutButton = styled.button`
   cursor: pointer;
 `
 
-const TopBar = () => {
+const TopBar = props => {
   return (
     <TopBarWrapper>
       <TopBarContainer>
@@ -112,11 +113,11 @@ const TopBar = () => {
           <CenterContainerSpans>GENERAL</CenterContainerSpans><CenterContainerSpans>BROWNBAG</CenterContainerSpans><CenterContainerSpans>RANDOM</CenterContainerSpans><CenterContainerSpans>MUSIC</CenterContainerSpans><LastCenterSpan>ANNOUNCEMENTS</LastCenterSpan>
         </CenterContainer>
         <RightContainer>
-          <RightContainerSpans>{localStorage.getItem('lt-username') === null ? 'LOG IN' : localStorage.getItem('lt-username')}</RightContainerSpans>
-          <LogOut>
+          <RightContainerSpans onClick={props.toggleLogOut}>{localStorage.getItem('lt-username') === null ? 'LOG IN' : localStorage.getItem('lt-username')}</RightContainerSpans>
+          <LogOut open={props.logOutOpen}>
             <form action="">
             <LogoutTriangle/>  
-            <LogOutButton>Logout</LogOutButton>
+            <LogOutButton onClick={props.logOut}>Logout</LogOutButton>
             </form>
           </LogOut>
         </RightContainer>
