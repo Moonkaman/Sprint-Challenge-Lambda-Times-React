@@ -1,13 +1,32 @@
 import React from 'react';
 
-const Login = () => {
-  return (
-    <form action="">
-      <h1>Please enter a username</h1>
-      <input type="text" placeholder='Username...' />
-      <button>Log In</button>
-    </form>
-  )
+class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      usernameInput: ''
+    }
+  }
+
+  handleInput = e => {
+    this.setState({
+      usernameInput: e.target.value
+    })
+  }
+
+  logIn = _ => {
+    localStorage.setItem('lt-username', this.state.usernameInput);
+  }
+
+  render(){
+    return (
+      <form action="">
+        <h1>Please enter a Username</h1>
+        <input type="text" placeholder='Username...' value={this.state.usernameInput} onChange={this.handleInput} />
+        <button onClick={this.logIn}>Log In</button>
+      </form>
+    )
+  }
 }
 
 export default Login;
