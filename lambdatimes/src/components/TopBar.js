@@ -35,7 +35,7 @@ const LeftContainer = styled.div`
   flex: 1;
   font-size: 11px;
 `
-const LeftContainerSpans = styled.div`
+const LeftContainerSpans = styled.span`
   cursor: pointer;
   margin-right: 25%;
   font-weight: bold;
@@ -48,7 +48,7 @@ const CenterContainer = styled.div`
   flex: 3;
   font-size: 9px;
 `
-const CenterContainerSpans = styled.div`
+const CenterContainerSpans = styled.span`
   cursor: pointer;
   margin-right: 5%;
   &:hover {
@@ -57,6 +57,19 @@ const CenterContainerSpans = styled.div`
 `
 const LastCenterSpan = styled(CenterContainerSpans)`
   margin-right: 0;
+`
+const RightContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+  font-size: 11px;
+  font-weight: bold;
+`
+
+const RightContainerSpans = styled.span`
+  cursor: pointer;
 `
 
 const TopBar = () => {
@@ -69,9 +82,9 @@ const TopBar = () => {
         <CenterContainer>
           <CenterContainerSpans>GENERAL</CenterContainerSpans><CenterContainerSpans>BROWNBAG</CenterContainerSpans><CenterContainerSpans>RANDOM</CenterContainerSpans><CenterContainerSpans>MUSIC</CenterContainerSpans><LastCenterSpan>ANNOUNCEMENTS</LastCenterSpan>
         </CenterContainer>
-        <div className="container-right">
-          <span>LOG IN</span>
-        </div>
+        <RightContainer>
+          <RightContainerSpans>LOG IN</RightContainerSpans>
+        </RightContainer>
       </TopBarContainer>
     </TopBarWrapper>
   )
