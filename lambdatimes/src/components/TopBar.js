@@ -60,6 +60,7 @@ const LastCenterSpan = styled(CenterContainerSpans)`
 `
 const RightContainer = styled.div`
   display: flex;
+  position: relative;
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
@@ -67,8 +68,36 @@ const RightContainer = styled.div`
   font-size: 11px;
   font-weight: bold;
 `
-
 const RightContainerSpans = styled.span`
+  cursor: pointer;
+`
+const LogOut = styled.div`
+  position: absolute;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 5px gray;
+  top: 44px;
+  right: -11px;
+`
+const LogoutTriangle = styled.div`
+  position: absolute;
+  top: -8px;
+  right: 35px;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+`
+const LogOutButton = styled.button`
+  background: none;
+  outline: none;
+  border: none;
+  background: #304FFE;
+  color: white;
+  font-weight: bold;
+  padding: 5px 20px;
+  border-radius: 4px;
   cursor: pointer;
 `
 
@@ -83,7 +112,13 @@ const TopBar = () => {
           <CenterContainerSpans>GENERAL</CenterContainerSpans><CenterContainerSpans>BROWNBAG</CenterContainerSpans><CenterContainerSpans>RANDOM</CenterContainerSpans><CenterContainerSpans>MUSIC</CenterContainerSpans><LastCenterSpan>ANNOUNCEMENTS</LastCenterSpan>
         </CenterContainer>
         <RightContainer>
-          <RightContainerSpans>LOG IN</RightContainerSpans>
+          <RightContainerSpans>{localStorage.getItem('lt-username') === null ? 'LOG IN' : localStorage.getItem('lt-username')}</RightContainerSpans>
+          <LogOut>
+            <form action="">
+            <LogoutTriangle/>  
+            <LogOutButton>Logout</LogOutButton>
+            </form>
+          </LogOut>
         </RightContainer>
       </TopBarContainer>
     </TopBarWrapper>
