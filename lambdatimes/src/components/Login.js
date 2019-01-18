@@ -22,7 +22,7 @@ const LoginButton = styled.button`
   border: none;
   color: white;
   font-size: 18px;
-  padding: 3px 0;
+  padding: 5px 0;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   cursor: pointer;
